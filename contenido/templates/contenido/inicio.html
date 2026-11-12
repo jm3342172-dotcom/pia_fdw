@@ -24,11 +24,11 @@
         <div class="portada-botones">
 
             <a href="#" class="boton-principal">
-                Conoce nuestros servicios 
+                Agenda tu cita 
             </a>
 
             <a href="#" class="boton-secundario">
-                Nuestras sucursales
+                Conócenos más
             </a>
 
         </div>
@@ -46,7 +46,6 @@
 <!-- CATEGORIAS DE SERVICIOS -->
 
 <section class="categorias">
-
     <div class="categoria">
         <h3>Corte</h3>
         <p>Dama, caballero y niños</p>
@@ -66,11 +65,9 @@
         <h3>Barbería</h3>
         <p>Corte, perfilado y afeitado</p>
     </div>
-
 </section>
 
 <!-- NUESTROS SERVICIOS -->
-
 <section class="servicios-inicio">
 
     <div class="servicios-encabezado">
@@ -79,19 +76,145 @@
             <p>Explora todo lo que tenemos para ti.</p>
         </div>
 
-        <a href="#">Ver todos los servicios →</a>
+        <a href="{% url 'servicios' %}">Explora más de nuestros servicios →</a>
     </div>
 
-  {% for servicio in servicios %}
+
+
+<div class="servicios-tarjetas">
+
+    {% for servicio in servicios %}
     <div class="tarjeta-servicio">
+
+        {% if servicio.nombre == "Corte de cabello" %}
+            <img src="{% static 'contenido/img/corte.jpeg' %}" alt="Corte de cabello">
+
+        {% elif servicio.nombre == "Coloración" %}
+            <img src="{% static 'contenido/img/coloracion.jpeg' %}" alt="Coloración">
+
+        {% elif servicio.nombre == "Manicure y pedicure" %}
+            <img src="{% static 'contenido/img/unas.jpeg' %}" alt="Manicure y pedicure">
+
+        {% elif servicio.nombre == "Barbería" %}
+            <img src="{% static 'contenido/img/barberia.jpeg' %}" alt="Barbería">
+        {% endif %}
+
         <div class="tarjeta-texto">
             <h3>{{ servicio.nombre }}</h3>
             <p>${{ servicio.precio }}</p>
         </div>
+
     </div>
-{% empty %}
-    <p>Próximamente tendremos servicios disponibles.</p>
-{% endfor %}  
+    {% empty %}
+        <p>Próximamente tendremos servicios disponibles.</p>
+    {% endfor %}
+
+</div> 
 
 </section>
+
+<!-- PRODUCTOS STUDIO 53 -->
+<section class="productos-inicio">
+
+    <div class="encabezado-seccion">
+    <span class="numero-seccion"> PRODUCTOS</span>
+    <h2>Cuidado que se nota.</h2>
+    <p>Descubre nuestra selección de productos profesionales.</p>
+</div>
+
+    <div class="productos-imagen">
+        <img src="{% static 'contenido/img/productos.jpeg' %}" alt="Productos de cuidado capilar Studio 53">
+    </div>
+
+    <div class="productos-texto">
+        <h2>Productos para tu cuidado</h2>
+
+        <p>
+            En Studio 53 también contamos con productos de belleza
+            y cuidado capilar, ideales para complementar tus tratamientos
+            y mantener tu cabello saludable y radiante.
+        </p>
+
+        <a href="#" class="boton-seccion">
+    Conocer productos <span>→</span>
+</a>
+
+    </div>
+
+</section>
+
+<!-- NUESTRO EQUIPO -->
+<section class="equipo-inicio">
+
+    <div class="encabezado-seccion">
+    <span class="numero-seccion"> NUESTRO EQUIPO</span>
+
+    <h2>Personas detrás de tu estilo.</h2>
+
+    <p>
+        Conoce a los profesionales que hacen de cada visita
+        una experiencia especial.
+    </p>
+</div>
+
+    <div class="equipo-imagen">
+        <img src="{% static 'contenido/img/equipo.jpeg' %}" alt="Equipo de profesionales Studio 53">
+    </div>
+
+    <div class="equipo-texto">
+        <h2>Conoce a nuestro equipo</h2>
+
+        <p>
+            Contamos con profesionales comprometidos con tu imagen,
+            belleza y bienestar. Nuestro objetivo es brindarte
+            una atención personalizada y una experiencia agradable
+            en cada visita.
+        </p>
+
+        <a href="#" class="boton-seccion">
+    Conocer estilistas <span>→</span>
+</a>
+    </div>
+
+    </section>
+
+
+
+    <!-- NUESTRAS SUCURSALES -->
+    
+<section class="sucursales-inicio">
+
+    <div class="encabezado-seccion">
+    <span class="numero-seccion"> UBICACIONES</span>
+
+    <h2>Un espacio para ti.</h2>
+
+    <p>
+        Encuentra tu Studio 53 más cercano y disfruta
+        de una experiencia dedicada a tu belleza y bienestar.
+    </p>
+</div>
+
+    <div class="sucursales-imagen">
+        <img src="{% static 'contenido/img/sucursal referencia.jpeg' %}"
+             alt="Sucursal de Studio 53">
+    </div>
+
+    <div class="sucursales-texto">
+        <h2>Visítanos en Studio 53</h2>
+
+        <p>
+            Queremos estar cerca de ti. Conoce nuestras sucursales,
+            consulta sus ubicaciones y encuentra el espacio ideal
+            para disfrutar de nuestros servicios.
+        </p>
+
+        <a href="#" class="boton-seccion">
+    Conocer sucursales <span>→</span>
+</a>
+    </div>
+
+</section>
+
+
 {% endblock %}

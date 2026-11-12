@@ -1,0 +1,51 @@
+{% extends 'contenido/base.html' %}
+{% load static %}
+
+{% block titulo %}Servicios | STUDIO 53{% endblock %}
+
+{% block contenido %}
+
+<section class="servicios-inicio">
+
+    <div class="servicios-encabezado">
+        <div>
+            <h2>Nuestros servicios</h2>
+            <p>Descubre todo lo que tenemos preparado para ti.</p>
+        </div>
+    </div>
+
+    <div class="servicios-tarjetas">
+
+        {% for servicio in servicios %}
+        <div class="tarjeta-servicio">
+
+            {% if servicio.nombre == "Corte de cabello" %}
+                <img src="{% static 'contenido/img/corte.jpeg' %}" alt="Corte de cabello">
+
+            {% elif servicio.nombre == "Coloración" %}
+                <img src="{% static 'contenido/img/coloracion.jpeg' %}" alt="Coloración">
+
+            {% elif servicio.nombre == "Manicure y pedicure" %}
+                <img src="{% static 'contenido/img/unas.jpeg' %}" alt="Manicure y pedicure">
+
+            {% elif servicio.nombre == "Barbería" %}
+                <img src="{% static 'contenido/img/barberia.jpeg' %}" alt="Barbería">
+            {% endif %}
+
+            <div class="tarjeta-texto">
+                <h3>{{ servicio.nombre }}</h3>
+                <p>{{ servicio.descripcion }}</p>
+                <strong>${{ servicio.precio }}</strong>
+                <p>Duración: {{ servicio.duracion }} minutos</p>
+            </div>
+
+        </div>
+        {% empty %}
+            <p>Actualmente no hay servicios disponibles.</p>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

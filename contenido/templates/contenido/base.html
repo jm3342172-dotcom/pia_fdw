@@ -5,14 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo %}Studio 53{% endblock %}</title>
+    <link rel="icon" type="image/png" href="{% static 'contenido/img/logo-tijeras.jpeg' %}">
     <link rel="stylesheet" href="{% static 'contenido/estilos.css' %}">
 </head>
 <body>
 
     <header>
 
-        <nav class="navegacio,n">
-            <a href="#" class="logo">STUDIO 53</a>
+        <nav class="navegacion">
+            <a href="#" class="logo">
+                <img src="{% static 'contenido/img/logo-tijeras.jpeg' %}" alt="Logo STUDIO 53">
+                STUDIO 53
+            </a>
             <ul class="menu">
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Servicios</a></li>
