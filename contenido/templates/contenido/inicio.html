@@ -1,0 +1,97 @@
+{% extends 'contenido/base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Inicio | Studio 53
+{% endblock %}
+
+{% block contenido %}
+
+<section class="portada">
+
+    <div class="portada-texto">
+
+        <p class="subtitulo">
+            SALÓN DE BELLEZA & BARBERÍA
+        </p>
+
+        <h1>STUDIO 53</h1>
+
+        <p class="descripcion">
+            Cuidado, estilo y bienestar en un solo lugar.
+        </p>
+
+        <div class="portada-botones">
+
+            <a href="#" class="boton-principal">
+                Conoce nuestros servicios 
+            </a>
+
+            <a href="#" class="boton-secundario">
+                Nuestras sucursales
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="portada-imagen">
+
+        <img src="{% static 'contenido/img/salon-principal.jpeg' %}" alt="Interior de Estudio 53">
+
+    </div>
+
+</section>
+
+<!-- CATEGORIAS DE SERVICIOS -->
+
+<section class="categorias">
+
+    <div class="categoria">
+        <h3>Corte</h3>
+        <p>Dama, caballero y niños</p>
+    </div>
+
+    <div class="categoria">
+        <h3>Coloración</h3>
+        <p>Tintes, mechas y balayage</p>
+    </div>
+
+    <div class="categoria">
+        <h3>Uñas</h3>
+        <p>Manicure y pedicure</p>
+    </div>
+
+    <div class="categoria">
+        <h3>Barbería</h3>
+        <p>Corte, perfilado y afeitado</p>
+    </div>
+
+</section>
+
+<!-- NUESTROS SERVICIOS -->
+
+<section class="servicios-inicio">
+
+    <div class="servicios-encabezado">
+        <div>
+            <h2>Nuestros servicios</h2>
+            <p>Explora todo lo que tenemos para ti.</p>
+        </div>
+
+        <a href="#">Ver todos los servicios →</a>
+    </div>
+
+  {% for servicio in servicios %}
+    <div class="tarjeta-servicio">
+        <div class="tarjeta-texto">
+            <h3>{{ servicio.nombre }}</h3>
+            <p>${{ servicio.precio }}</p>
+        </div>
+    </div>
+{% empty %}
+    <p>Próximamente tendremos servicios disponibles.</p>
+{% endfor %}  
+
+</section>
+{% endblock %}

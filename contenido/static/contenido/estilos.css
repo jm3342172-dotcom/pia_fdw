@@ -1,0 +1,289 @@
+
+/* ESTILOS GENERALES */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f5f2;
+    color: #222;
+}
+
+/* ENCABEZADO */
+
+header {
+    background-color: #202020;
+    width: 100%;
+}
+
+.navegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 4%;
+}
+
+/* LOGOTIPO */
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+/* MENU */
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #c9b99a;
+}
+
+/* BOTON INICIAR SESION */
+
+.boton-login {
+    background-color: #f7f5f2;
+    color: #222;
+    text-decoration: none;
+    padding: 13px 22px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.boton-login:hover {
+    background-color: #d8d0c5;
+}
+
+/* PORTADA PRINCIPAL */
+
+.portada {
+    display: flex;
+    align-items: center;
+    min-height: 430px;
+    background-color: #f7f5f2;
+}
+
+.portada-texto {
+    width: 40%;
+    padding: 50px 4%;
+}
+
+.subtitulo {
+    font-size: 15px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.portada-texto h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.descripcion {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.portada-imagen {
+    width: 60%;
+    height: 430px;
+}
+
+.portada-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* BOTONES DE LA PORTADA */
+
+.portada-botones {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.boton-principal {
+    background-color: #202020;
+    color: white;
+    text-decoration: none;
+    padding: 14px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.boton-principal:hover {
+    background-color: #444;
+}
+
+.boton-secundario {
+    background-color: transparent;
+    color: #222;
+    text-decoration: none;
+    padding: 14px 25px;
+    border: 1px solid #222;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.boton-secundario:hover {
+    background-color: #e8e3dc;
+}
+
+/* CATEGORIAS */
+
+.categorias {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #eae6e1;
+    padding: 30px 4%;
+    gap: 20px;
+}
+
+.categoria {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border-right: 1px solid #ccc;
+}
+
+.categoria:last-child {
+    border-right: none;
+}
+
+.categoria h3 {
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.categoria p {
+    font-size: 15px;
+    color: #555;
+}
+
+/* SECCION NUESTROS SERVICIOS */
+
+.servicios-inicio {
+    padding: 60px 5%;
+    background-color: #f7f5f2;
+}
+
+.servicios-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.servicios-encabezado h2 {
+    font-size: 30px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.servicios-encabezado p {
+    color: #666;
+}
+
+.servicios-encabezado a {
+    color: #222;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.servicios-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.tarjeta-servicio {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta-servicio img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.tarjeta-texto {
+    padding: 20px;
+}
+
+.tarjeta-texto h3 {
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.tarjeta-texto p {
+    color: #777;
+}
+
+/* NAVEGACION PRINCIPAL */
+
+.navegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 4%;
+    background-color: #202020;
+    width: 100%;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.menu a:hover {
+    color: #c9b99a;
+}
+
+.boton-login {
+    background-color: #f7f5f2;
+    color: #222;
+    text-decoration: none;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-weight: bold;
+}
