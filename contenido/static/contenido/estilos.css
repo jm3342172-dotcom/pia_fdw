@@ -549,3 +549,293 @@ header {
 /* ==========================================
    FIN DE SECCIONES DE INICIO
 ========================================== */
+
+/* ========================================
+   PAGINA DE SERVICIOS - STUDIO 53
+======================================== */
+
+.pagina-servicios {
+    background-color: #EBD9CC;
+    color: #211B18;
+    padding: 45px 4% 25px;
+}
+
+/* ENCABEZADO */
+
+.encabezado-servicios {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 35px;
+}
+
+.subtitulo-servicios {
+    font-size: 13px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.encabezado-servicios h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 6vw, 68px);
+    font-style: italic;
+    font-weight: normal;
+    margin: 0 0 15px;
+}
+
+.descripcion-encabezado {
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 650px;
+    margin: auto;
+}
+
+/* CATEGORIAS */
+
+.categorias-servicios {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 900px;
+    margin: 35px auto 45px;
+    gap: 20px;
+}
+
+.categoria-servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #211B18;
+    font-size: 16px;
+    text-align: center;
+}
+
+.icono-categoria {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background-color: #DFC4B0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icono-categoria svg {
+    width: 42px;
+    height: 42px;
+    fill: none;
+    stroke: #211B18;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* TARJETAS */
+
+.lista-servicios {
+    max-width: 1200px;
+    margin: 0 auto 35px;
+}
+
+.contenedor-tarjetas-servicios {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.tarjeta-servicio {
+    background-color: #F5E9E0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(50, 30, 20, 0.08);
+    scroll-margin-top: 25px;
+}
+
+.imagen-tarjeta-servicio {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.imagen-tarjeta-servicio img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.informacion-servicio {
+    padding: 18px 25px 20px;
+}
+
+.informacion-servicio h2 {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0 0 8px;
+}
+
+.informacion-servicio p {
+    font-size: 15px;
+    line-height: 1.45;
+    min-height: 65px;
+    margin: 0 0 15px;
+}
+
+.precio-servicio {
+    background-color: #DFC4B0;
+    border-radius: 30px;
+    padding: 9px 15px;
+    text-align: center;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.sin-servicios {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 30px;
+}
+
+/* CONTACTO */
+
+.contacto-servicios {
+    max-width: 1200px;
+    margin: 35px auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #211B18;
+    border-radius: 18px;
+    overflow: hidden;
+    min-height: 230px;
+}
+
+.imagen-contacto-servicios {
+    min-height: 230px;
+}
+
+.imagen-contacto-servicios img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.texto-contacto-servicios {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #F5E9E0;
+    padding: 25px;
+}
+
+.texto-contacto-servicios h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0 0 12px;
+}
+
+.texto-contacto-servicios p {
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0 0 20px;
+}
+
+.boton-contacto-servicios {
+    background-color: #F5E9E0;
+    color: #211B18;
+    padding: 13px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.boton-contacto-servicios:hover {
+    background-color: #DFC4B0;
+}
+
+/* ADAPTACION A CELULARES */
+
+@media (max-width: 768px) {
+
+    .pagina-servicios {
+        padding: 35px 18px 20px;
+    }
+
+    .encabezado-servicios h1 {
+        font-size: 42px;
+    }
+
+    .descripcion-encabezado {
+        font-size: 15px;
+    }
+
+    .categorias-servicios {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 10px;
+        margin: 30px auto;
+    }
+
+    .contenedor-tarjetas-servicios {
+        grid-template-columns: 1fr;
+    }
+
+    .imagen-tarjeta-servicio {
+        height: 220px;
+    }
+
+    .informacion-servicio h2 {
+        font-size: 28px;
+    }
+
+    .contacto-servicios {
+        grid-template-columns: 1fr;
+    }
+
+    .imagen-contacto-servicios {
+        height: 190px;
+    }
+
+    .texto-contacto-servicios h2 {
+        font-size: 35px;
+    }
+}
+
+.redes-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-top: 15px;
+}
+
+.telefono-redes {
+    font-size: 17px;
+    color: #F5E9E0;
+}
+
+.iconos-redes {
+    display: flex;
+    gap: 25px;
+}
+
+.iconos-redes a {
+    color: #F5E9E0;
+    font-size: 25px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.iconos-redes a:hover {
+    color: #DFC4B0;
+}

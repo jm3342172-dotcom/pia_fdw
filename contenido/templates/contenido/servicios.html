@@ -1,51 +1,201 @@
 {% extends 'contenido/base.html' %}
 {% load static %}
 
-{% block titulo %}Servicios | STUDIO 53{% endblock %}
-
 {% block contenido %}
 
-<section class="servicios-inicio">
+<main class="pagina-servicios">
 
-    <div class="servicios-encabezado">
-        <div>
-            <h2>Nuestros servicios</h2>
-            <p>Descubre todo lo que tenemos preparado para ti.</p>
-        </div>
-    </div>
+    <!-- ENCABEZADO -->
+    <section class="encabezado-servicios">
+        <p class="subtitulo-servicios">
+            STUDIO 53 · BELLEZA Y BIENESTAR
+        </p>
 
-    <div class="servicios-tarjetas">
+        <h1>Nuestros servicios</h1>
 
-        {% for servicio in servicios %}
-        <div class="tarjeta-servicio">
+        <p class="descripcion-encabezado">
+            Cuida tu imagen y resalta tu belleza con nuestros servicios
+            de alta calidad, pensados para ti.
+        </p>
+    </section>
 
-            {% if servicio.nombre == "Corte de cabello" %}
-                <img src="{% static 'contenido/img/corte.jpeg' %}" alt="Corte de cabello">
 
-            {% elif servicio.nombre == "Coloración" %}
-                <img src="{% static 'contenido/img/coloracion.jpeg' %}" alt="Coloración">
+    <!-- CATEGORÍAS -->
+    <section class="categorias-servicios">
 
-            {% elif servicio.nombre == "Manicure y pedicure" %}
-                <img src="{% static 'contenido/img/unas.jpeg' %}" alt="Manicure y pedicure">
-
-            {% elif servicio.nombre == "Barbería" %}
-                <img src="{% static 'contenido/img/barberia.jpeg' %}" alt="Barbería">
-            {% endif %}
-
-            <div class="tarjeta-texto">
-                <h3>{{ servicio.nombre }}</h3>
-                <p>{{ servicio.descripcion }}</p>
-                <strong>${{ servicio.precio }}</strong>
-                <p>Duración: {{ servicio.duracion }} minutos</p>
+        <a href="#corte" class="categoria-servicio">
+            <div class="icono-categoria">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <circle cx="16" cy="48" r="8"/>
+                    <circle cx="16" cy="48" r="3"/>
+                    <circle cx="40" cy="48" r="8"/>
+                    <circle cx="40" cy="48" r="3"/>
+                    <path d="M22 42 L48 12 M34 42 L8 12"/>
+                </svg>
             </div>
+            <span>Corte de cabello</span>
+        </a>
+
+        <a href="#coloracion" class="categoria-servicio">
+            <div class="icono-categoria">
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <path d="M18 39 L46 39 L42 52 L22 52 Z"/>
+                    <path d="M22 39 Q32 29 42 39"/>
+                    <path d="M38 29 L49 9 L54 12 L43 32"/>
+                    <path d="M18 52 L46 52"/>
+                </svg>
+            </div>
+            <span>Coloración</span>
+        </a>
+
+       <a href="#unas" class="categoria-servicio">
+    <div class="icono-categoria">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M18 42 C18 34 24 27 32 27 C40 27 46 34 46 42"/>
+            <path d="M18 42 L46 42"/>
+            <path d="M25 27 L25 19 C25 15 29 12 32 12 C35 12 39 15 39 19 L39 27"/>
+            <path d="M25 19 L39 19"/>
+            <path d="M28 34 L28 38 M36 34 L36 38"/>
+        </svg>
+    </div>
+    <span>Manicure y pedicure</span>
+</a>
+<a href="#barberia" class="categoria-servicio">
+    <div class="icono-categoria">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect x="20" y="8" width="24" height="48" rx="4"/>
+            <path d="M20 17 H44"/>
+            <path d="M20 47 H44"/>
+            <path d="M22 40 L42 20"/>
+            <path d="M22 49 L42 29"/>
+            <path d="M22 31 L35 18"/>
+        </svg>
+    </div>
+    <span>Barbería</span>
+</a>
+
+    </section>
+
+
+    <!-- TARJETAS DE SERVICIOS -->
+    <section class="lista-servicios">
+
+        <div class="contenedor-tarjetas-servicios">
+
+            {% for servicio in servicios %}
+
+            <article class="tarjeta-servicio"
+                {% if 'corte' in servicio.nombre|lower %}
+                    id="corte"
+                {% elif 'color' in servicio.nombre|lower %}
+                    id="coloracion"
+                {% elif 'manicure' in servicio.nombre|lower or 'pedicure' in servicio.nombre|lower %}
+                    id="unas"
+                {% elif 'barber' in servicio.nombre|lower %}
+                    id="barberia"
+                {% endif %}>
+
+                <div class="imagen-tarjeta-servicio">
+
+                    {% if 'corte' in servicio.nombre|lower %}
+                        <img src="{% static 'contenido/img/corte.jpeg' %}"
+                             alt="Corte de cabello">
+
+                    {% elif 'color' in servicio.nombre|lower %}
+                        <img src="{% static 'contenido/img/coloracion.jpeg' %}"
+                             alt="Coloración">
+
+                    {% elif 'manicure' in servicio.nombre|lower or 'pedicure' in servicio.nombre|lower %}
+                        <img src="{% static 'contenido/img/unas.jpeg' %}"
+                             alt="Manicure y pedicure">
+
+                    {% elif 'barber' in servicio.nombre|lower %}
+                        <img src="{% static 'contenido/img/barberia.jpeg' %}"
+                             alt="Barbería">
+
+                    {% else %}
+                        <img src="{% static 'contenido/img/salon-principal.jpeg' %}"
+                             alt="STUDIO 53">
+                    {% endif %}
+
+                </div>
+
+                <div class="informacion-servicio">
+
+                    <h2>{{ servicio.nombre }}</h2>
+
+                    <p>{{ servicio.descripcion }}</p>
+
+                    <div class="precio-servicio">
+                        ${{ servicio.precio }} MXN
+                    </div>
+
+                </div>
+
+            </article>
+
+            {% empty %}
+
+                <p class="sin-servicios">
+                    Actualmente no hay servicios disponibles.
+                </p>
+
+            {% endfor %}
 
         </div>
-        {% empty %}
-            <p>Actualmente no hay servicios disponibles.</p>
-        {% endfor %}
 
+    </section>
+
+
+    <!-- CONTACTO -->
+    <section class="contacto-servicios">
+
+        <div class="imagen-contacto-servicios">
+            <img src="{% static 'contenido/img/salon-principal.jpeg' %}"
+                 alt="Instalaciones de STUDIO 53">
+        </div>
+
+        <div class="texto-contacto-servicios">
+
+            <h2>Contáctanos</h2>
+
+            <p>
+                ¿Tienes dudas o quieres más información
+                sobre nuestros servicios?
+            </p>
+
+            <div class="redes-contacto">
+
+    <span class="telefono-redes">
+        <i class="fa-solid fa-phone"></i>
+        81 5000 0000
+    </span>
+
+    <div class="iconos-redes">
+        <a href="#" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="#" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok"></i>
+        </a>
+
+        <a href="#" aria-label="Facebook">
+            <i class="fa-brands fa-facebook"></i>
+        </a>
+
+        <a href="#" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
     </div>
 
-</section>
+</div>
+            </a>
 
-{% endblock %}
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock contenido %}

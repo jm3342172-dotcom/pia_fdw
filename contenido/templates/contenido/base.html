@@ -7,6 +7,7 @@
     <title>{% block titulo %}Studio 53{% endblock %}</title>
     <link rel="icon" type="image/png" href="{% static 'contenido/img/logo-tijeras.jpeg' %}">
     <link rel="stylesheet" href="{% static 'contenido/estilos.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
@@ -18,8 +19,8 @@
                 STUDIO 53
             </a>
             <ul class="menu">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Servicios</a></li>
+                <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                <li><a href="{% url 'servicios' %}">Servicios</a></li>
                 <li><a href="#">Estilistas</a></li>
                 <li><a href="#">Productos</a></li>
                 <li><a href="#">Sucursales</a></li>
