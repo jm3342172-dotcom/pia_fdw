@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Servicio, Estilista
+from .models import Servicio, Estilista , Producto
 
 
 # Página de inicio
@@ -31,3 +31,11 @@ def estilistas(request):
     
 def sucursales(request):
     return render(request, 'contenido/sucursales.html')
+
+# Página de productos
+def productos(request):
+    productos = Producto.objects.all()
+
+    return render(request, 'contenido/productos.html', {
+        'productos': productos
+    })
