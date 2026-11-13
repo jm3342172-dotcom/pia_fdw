@@ -346,7 +346,7 @@ header {
 /* 5. IMAGEN DE SUCURSALES */
 
 .sucursales-imagen img {
-    flexbox: 1;
+    flex: 1;
     min-width: 0;
     }
 
