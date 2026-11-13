@@ -27,3 +27,7 @@ def estilistas(request):
     return render(request, 'contenido/estilistas.html', {
         'estilistas': estilistas
     })
+
+    
+def sucursales(request):
+    return render(request, 'contenido/sucursales.html')
