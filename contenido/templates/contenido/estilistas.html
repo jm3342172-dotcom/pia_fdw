@@ -1,0 +1,46 @@
+{% extends 'contenido/base.html' %}
+
+{% block titulo %}Estilistas | Studio 53{% endblock %}
+
+{% block contenido %}
+
+<section class="directorio-estilistas">
+    <h2>Nuestros Estilistas</h2>
+    <p>Conoce a los profesionales de Studio 53</p>
+
+    <div class="estilistas-grid">
+
+        {% for estilista in estilistas %}
+        <div class="tarjeta-estilista">
+
+            {% if estilista.foto %}
+                <img src="{{ estilista.foto.url }}"
+                     alt="{{ estilista.nombre }}">
+            {% else %}
+                <div class="sin-foto">
+                    Sin fotografía
+                </div>
+            {% endif %}
+
+            <div class="datos-estilista">
+                <h3>{{ estilista.nombre }}</h3>
+                <p>{{ estilista.especialidad }}</p>
+                <p>{{ estilista.telefono }}</p>
+                <p>{{ estilista.correo }}</p>
+
+                {% if estilista.disponible %}
+                    <span>Disponible</span>
+                {% else %}
+                    <span>No disponible</span>
+                {% endif %}
+            </div>
+
+        </div>
+        {% empty %}
+            <p>Aún no hay estilistas registrados.</p>
+        {% endfor %}
+
+    </div>
+</section>
+
+{% endblock %}

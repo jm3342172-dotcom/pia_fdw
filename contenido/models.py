@@ -21,14 +21,20 @@ class Servicio(models.Model):
 # estilista model
 
 class Estilista(models.Model):
-        nombre = models.CharField(max_length=100)
-        especialidad = models.CharField(max_length=100)
-        telefono = models.CharField(max_length=15)
-        correo = models.EmailField()
-        disponible = models.BooleanField(default=True)
-        
-        def __str__(self):
-            return self.nombre
+    nombre = models.CharField(max_length=100)
+    especialidad = models.CharField(max_length=100)
+    telefono = models.CharField(max_length=15)
+    correo = models.EmailField()
+    disponible = models.BooleanField(default=True)
+    foto = models.ImageField(
+        upload_to='estilistas/',
+        blank=True,
+        null=True
+    )
+
+    def __str__(self):
+        return self.nombre
+
 
 
 # producto model
