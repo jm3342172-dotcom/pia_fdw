@@ -346,7 +346,6 @@ header {
 /* 5. IMAGEN DE SUCURSALES */
 
 .sucursales-imagen img {
-    flexbox: 1;
     min-width: 0;
     }
 
@@ -1002,4 +1001,200 @@ header {
     .sin-foto {
         height: 300px;
     }
+}
+
+/* ==========================================
+   PAGINA DE PRODUCTOS - STUDIO 53
+========================================== */
+
+.pagina-productos {
+    background-color: #EBD9CC;
+    color: #211B18;
+    padding: 40px 5% 60px;
+}
+
+/* BANNER */
+
+.banner-productos {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    background-color: #211B18;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.banner-productos-texto {
+    width: 45%;
+    padding: 40px 45px;
+    color: #F5E9E0;
+}
+
+.banner-productos-texto h1 {
+    font-family: Georgia, serif;
+    font-size: 54px;
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.banner-productos-texto p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.banner-productos-imagen {
+    position: relative;
+    width: 55%;
+    height: 210px;
+}
+
+.banner-productos-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 62%;
+    display: block;
+}
+
+.banner-productos-imagen::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #211B18, transparent 55%);
+}
+
+/* FILTROS */
+
+.filtros-productos {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.filtro-producto {
+    padding: 10px 26px;
+    border: 1px solid #D2B7A4;
+    border-radius: 30px;
+    background-color: #F5E9E0;
+    color: #211B18;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.filtro-producto.activo {
+    background-color: #211B18;
+    border-color: #211B18;
+    color: #F5E9E0;
+}
+
+/* TARJETAS */
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjeta-producto {
+    display: flex;
+    flex-direction: column;
+    background-color: #F5E9E0;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(50, 30, 20, 0.10);
+}
+
+.imagen-producto {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    padding: 16px 14px;
+    background-color: #E6CFC0;
+}
+
+.imagen-producto img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+}
+
+.categoria-producto {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 5px 12px;
+    border-radius: 30px;
+    background-color: #F5E9E0;
+    color: #66564c;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.info-producto {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 18px;
+}
+
+.info-producto h2 {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    margin-bottom: 6px;
+}
+
+.descripcion-producto {
+    color: #4d3f37;
+    font-size: 14px;
+    line-height: 1.45;
+    margin-bottom: 16px;
+}
+
+.precio-producto {
+    margin-top: auto;
+    padding: 9px;
+    border-radius: 30px;
+    background-color: #DFC4B0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.stock-producto {
+    align-self: center;
+    margin-top: 10px;
+    padding: 5px 14px;
+    border-radius: 30px;
+    background-color: #EBD9CC;
+    color: #5a4a40;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.stock-producto.sin-stock {
+    background-color: #211B18;
+    color: #F5E9E0;
+}
+
+/* MENSAJES */
+
+.sin-productos {
+    grid-column: 1 / -1;
+    padding: 35px;
+    border-radius: 15px;
+    background-color: #F5E9E0;
+    text-align: center;
+}
+
+/* necesario para que el filtro oculte tarjetas y mensajes */
+.tarjeta-producto[hidden],
+.sin-productos[hidden] {
+    display: none;
 }

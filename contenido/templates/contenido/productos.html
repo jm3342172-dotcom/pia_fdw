@@ -1,0 +1,152 @@
+{% extends 'contenido/base.html' %}
+{% load static %}
+
+{% block titulo %}Productos | Studio 53{% endblock %}
+
+{% block contenido %}
+
+<section class="pagina-productos">
+
+    <!-- BANNER -->
+    <div class="banner-productos">
+
+        <div class="banner-productos-texto">
+            <h1>Productos</h1>
+            <p>Cuidado profesional para tu cabello, piel y barba.</p>
+        </div>
+
+        <div class="banner-productos-imagen">
+            <img src="{% static 'contenido/img/productos.jpeg' %}"
+                 alt="Productos de cuidado Studio 53">
+        </div>
+
+    </div>
+
+
+    <!-- FILTROS POR CATEGORIA -->
+    <div class="filtros-productos" role="group" aria-label="Filtrar productos por categoría">
+        <button type="button" class="filtro-producto activo" data-filtro="todos" aria-pressed="true">Todos</button>
+        <button type="button" class="filtro-producto" data-filtro="cabello" aria-pressed="false">Cabello</button>
+        <button type="button" class="filtro-producto" data-filtro="barba" aria-pressed="false">Barba</button>
+        <button type="button" class="filtro-producto" data-filtro="piel" aria-pressed="false">Piel</button>
+    </div>
+
+
+    <!-- PRODUCTOS DE LA BASE DE DATOS -->
+    <div class="grid-productos" aria-live="polite">
+
+        {% for producto in productos %}
+
+        <article class="tarjeta-producto{% if not producto.disponible or producto.stock == 0 %} agotado{% endif %}"
+                 data-categoria="{{ producto.categoria|lower }}">
+
+            <div class="imagen-producto">
+
+                {% with nombre=producto.nombre|lower %}
+
+                    {% if 'acondicionador' in nombre %}
+                        <img src="{% static 'contenido/img/producto-acondicionador.jpeg' %}"
+                             alt="{{ producto.nombre }}">
+
+                    {% elif 'serum' in nombre or 'serum' in nombre %}
+                        <img src="{% static 'contenido/img/producto-serum.jpeg' %}"
+                             alt="{{ producto.nombre }}">
+
+                    {% elif 'tratamiento' in nombre %}
+                        <img src="{% static 'contenido/img/producto-tratamiento.jpeg' %}"
+                             alt="{{ producto.nombre }}">
+
+                    {% elif 'shampoo' in nombre or 'champu' in nombre or 'champú' in nombre %}
+                        <img src="{% static 'contenido/img/producto-shampoo.jpeg' %}"
+                             alt="{{ producto.nombre }}">
+
+                    {% elif 'mascarilla' in nombre %}
+                        <img src="{% static 'contenido/img/producto-mascarilla.jpeg' %}"
+                             alt="{{ producto.nombre }}">
+
+                    {% elif 'aceite' in nombre %}
+                        <img src="{% static 'contenido/img/producto-aceite.jpeg' %}"
+                             alt="{{ producto.nombre }}">
+
+                    {% else %}
+                        <span class="sin-imagen-producto">Sin imagen</span>
+                    {% endif %}
+
+                {% endwith %}
+
+                <span class="categoria-producto">{{ producto.categoria|capfirst }}</span>
+
+            </div>
+
+            <div class="info-producto">
+
+                <h2>{{ producto.nombre }}</h2>
+
+                <p class="descripcion-producto">{{ producto.descripcion|capfirst|linebreaksbr }}</p>
+
+                <div class="precio-producto">
+                    ${{ producto.precio|floatformat:"2g" }} MXN
+                </div>
+
+                {% if not producto.disponible %}
+                    <span class="stock-producto sin-stock">No disponible</span>
+                {% elif producto.stock == 0 %}
+                    <span class="stock-producto sin-stock">Agotado</span>
+                {% else %}
+                    <span class="stock-producto">En existencia ({{ producto.stock }})</span>
+                {% endif %}
+
+            </div>
+
+        </article>
+
+        {% empty %}
+
+            <p class="sin-productos">Aun no hay productos registrados.</p>
+
+        {% endfor %}
+
+        <p class="sin-productos" id="sin-resultados" hidden>
+            No hay productos en esta categoria por ahora.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FILTRO DE CATEGORIAS -->
+<script>
+    (function () {
+        var botones = document.querySelectorAll('.filtro-producto');
+        var tarjetas = document.querySelectorAll('.tarjeta-producto');
+        var aviso = document.getElementById('sin-resultados');
+
+        function filtrar(categoria) {
+            var visibles = 0;
+
+            tarjetas.forEach(function (tarjeta) {
+                var cat = tarjeta.dataset.categoria.trim().toLowerCase();
+                var mostrar = (categoria === 'todos' || cat === categoria);
+                tarjeta.hidden = !mostrar;
+                if (mostrar) { visibles++; }
+            });
+
+            // Solo avisa si hay productos en total pero ninguno en esta categoría
+            aviso.hidden = !(tarjetas.length > 0 && visibles === 0);
+        }
+
+        botones.forEach(function (boton) {
+            boton.addEventListener('click', function () {
+                botones.forEach(function (b) {
+                    var activo = (b === boton);
+                    b.classList.toggle('activo', activo);
+                    b.setAttribute('aria-pressed', activo ? 'true' : 'false');
+                });
+                filtrar(boton.dataset.filtro);
+            });
+        });
+    })();
+</script>
+
+{% endblock %}
