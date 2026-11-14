@@ -26,8 +26,8 @@ class Estilista(models.Model):
     telefono = models.CharField(max_length=15)
     correo = models.EmailField()
     disponible = models.BooleanField(default=True)
-    foto = models.ImageField(
-        upload_to='estilistas/',
+    foto = models.CharField(
+        max_length=250,
         blank=True,
         null=True
     )

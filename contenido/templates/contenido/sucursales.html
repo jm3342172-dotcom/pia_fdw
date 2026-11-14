@@ -1,8 +1,77 @@
 {% extends 'contenido/base.html' %}
+{% load static %}
 
 {% block contenido %}
-<section class="pagina-servicios">
-    <h1>Nuestras sucursales</h1>
-    <p>Encuentra tu sucursal STUDIO 53 más cercana.</p>
-</section>
+<link rel="stylesheet" href="{% static 'contenido/sucursales.css' %}">
+
+<div class="pagina-sucursales">
+
+    <div class="encabezado-sucursales">
+        <p>STUDIO 53 MONTERREY</p>
+        <h1>Nuestras Sucursales</h1>
+        <div class="subtitulo">
+            Encuentra tu STUDIO 53 más cercano
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <div class="sucursal">
+            <img src="{% static 'contenido/img/sucursal1.jpeg' %}" alt="Sucursal Centrito Valle">
+            <div class="informacion">
+                <p> SAN PEDRO GARZA GARCÍA</p>
+                <h2>Sucursal Centrito Valle</h2>
+                <p>
+                    Ubicada en una de las zonas más exclusivas
+                    de San Pedro
+                </p>
+                <p> Centrito Valle, San Pedro Garza García, N.L.</p>
+                <p>☎ (81) 1234 5678</p>
+                <p> Lun - Sáb: 9:00 a.m. - 8:00 p.m.</p>
+                <a class="boton" href="[google.com](https://www.google.com/maps/search/?api=1&query=Centrito+Valle+San+Pedro+Garza+Garcia)">
+                    Cómo llegar →
+                </a>
+            </div>
+        </div>
+
+        <div class="sucursal">
+            <img src="{% static 'contenido/img/sucursal2.jpeg' %}" alt="Sucursal La Rioja">
+            <div class="informacion">
+                <p> ZONA SUR DE MONTERREY</p>
+                <h2>Sucursal La Rioja</h2>
+                <p>
+                    Un espacio moderno y acogedor en la zona
+                    de La Rioja
+                </p>
+                <p>La Rioja, Monterrey, N.L.</p>
+                <p>☎ (81) 2345 6789</p>
+                <p> Lun - Sáb: 9:00 a.m. - 8:00 p.m.</p>
+                <a class="boton" href="[google.com](https://www.google.com/maps/search/?api=1&query=La+Rioja+Monterrey)">
+                    Cómo llegar →
+                </a>
+            </div>
+        </div>
+
+        <div class="sucursal">
+            <img src="{% static 'contenido/img/sucursal3.jpeg' %}" alt="Sucursal Cumbres">
+            <div class="informacion">
+                <p> CUMBRES, MONTERREY</p>
+                <h2>Sucursal Cumbres</h2>
+                <p> Nuestra sucursal en la zona Cumbres te ofrece un ambiente cómodo </p>
+                <p> Cumbres, Monterrey, N.L.</p>
+                <p>☎ (81) 3456 7890</p>
+                <p> Lun - Sáb: 9:00 a.m. - 8:00 p.m.</p>
+                <a class="boton" href="[google.com](https://www.google.com/maps/search/?api=1&query=Cumbres+Monterrey)">
+                    Cómo llegar →
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="pie-sucursales">
+        <h2>STUDIO 53</h2>
+        Belleza, estilo y bienestar en un solo lugar.
+    </div>
+
+</div>
 {% endblock %}

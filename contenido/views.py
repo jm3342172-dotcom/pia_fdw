@@ -24,6 +24,9 @@ def servicios(request):
 def estilistas(request):
     estilistas = Estilista.objects.all()
 
+    for estilista in estilistas:
+        estilista.foto_estatica = f"contenido/img/estilista{estilista.id}.jpeg"
+
     return render(request, 'contenido/estilistas.html', {
         'estilistas': estilistas
     })

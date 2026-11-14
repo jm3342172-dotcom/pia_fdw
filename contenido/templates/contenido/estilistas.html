@@ -1,4 +1,6 @@
 {% extends 'contenido/base.html' %}
+{% load static %}
+
 
 {% block titulo %}Estilistas | Studio 53{% endblock %}
 
@@ -13,14 +15,8 @@
         {% for estilista in estilistas %}
         <div class="tarjeta-estilista">
 
-            {% if estilista.foto %}
-                <img src="{{ estilista.foto.url }}"
-                     alt="{{ estilista.nombre }}">
-            {% else %}
-                <div class="sin-foto">
-                    Sin fotografía
-                </div>
-            {% endif %}
+<img src="{% static estilista.foto_estatica %}"
+     alt="{{ estilista.nombre }}">
 
             <div class="datos-estilista">
                 <h3>{{ estilista.nombre }}</h3>
